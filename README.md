@@ -98,33 +98,6 @@ VeriFact is deployed on **Google Cloud Run** for maximum scalability and zero-in
 ✅ Auto-scaling to zero (no idle cost).
 ✅ Fully managed infrastructure.
 ✅ Pay-per-use billing.
-
-### Deployment Workflow
-
-1. **Containerize the app:**
-
-   ```bash
-   docker build -t REGION-docker.pkg.dev/PROJECT-ID/verifact/verifact-service:latest .
-   ```
-
-2. **Push to Artifact Registry:**
-
-   ```bash
-   gcloud auth configure-docker REGION-docker.pkg.dev
-   docker push REGION-docker.pkg.dev/PROJECT-ID/verifact/verifact-service:latest
-   ```
-
-3. **Deploy to Cloud Run:**
-
-   ```bash
-   gcloud run deploy verifact-service \
-     --image REGION-docker.pkg.dev/PROJECT-ID/verifact/verifact-service:latest \
-     --platform managed \
-     --region YOUR_REGION \
-     --allow-unauthenticated \
-     --set-env-vars="GOOGLE_API_KEY=your_key,SCRAPER_API_KEY=your_key"
-   ```
-
 ---
 
 ## 7. Roadmap
